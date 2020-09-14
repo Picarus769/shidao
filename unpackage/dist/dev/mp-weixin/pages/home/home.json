@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "uni-search-bar": "/components/uni-search-bar/uni-search-bar",
-    "goods-list": "/components/goodsList/goodsList",
-    "back-top": "/components/backTop"
-  }
-}

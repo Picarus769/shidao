@@ -1,0 +1,91 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		
+		{
+			"path": "pages/home/home",
+			"style": {
+			}
+		}
+		,{
+			"path": "pages/login/login",
+			"style": {
+			}
+		}
+		,{
+				"path" : "pages/profile/profile",
+				"style" : {
+					"navigationBarBackgroundColor": "#F1729D",
+					"navigationBarTextStyle": "white"
+				}
+		}
+		,{
+				"path" : "pages/release/release",
+				"style" : {}
+		}
+		,{
+				"path" : "pages/cart/cart",
+				"style" : {}
+		}
+		,{
+				"path" : "pages/electronics/electronics",
+				"style" : {}
+		}
+		,{
+				"path" : "pages/books/books",
+				"style" : {}
+		}
+		,{
+				"path" : "pages/houses/houses",
+				"style" : {}
+		}
+		,{
+				"path" : "pages/cate/cate",
+				"style" : {}
+		}
+		
+        ,{
+            "path" : "pages/detail/detail",
+            "style" : {},
+						"scrollIndicator":"none"
+        }
+        ,{
+            "path" : "pages/chat/chat",
+            "style" : {}
+        }
+    ],
+	"scrollIndicator":"none",
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "拾到",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#FFFFFF"
+	},
+	"tabBar": {
+		"selectedColor": "#F1729D",
+		"list":[
+			{
+				"text":"首页",
+				"pagePath":"pages/home/home",
+				"iconPath":"static/icon/home.png",
+				"selectedIconPath":"static/icon/home-active.png"
+			},
+			{
+				"text":"发布",
+				"pagePath":"pages/release/release",
+				"iconPath":"static/icon/release.png",
+				"selectedIconPath":"static/icon/release-active.png"
+			},{
+				"text":"购物车",
+				"pagePath":"pages/cart/cart",
+				"iconPath":"static/icon/cart.png",
+				"selectedIconPath":"static/icon/cart-active.png"
+			},
+			{
+				"text":"我的",
+				"pagePath":"pages/profile/profile",
+				"iconPath":"static/icon/profile.png",
+				"selectedIconPath":"static/icon/profile-active.png"
+			}
+		]
+	}
+}

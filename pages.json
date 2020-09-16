@@ -52,6 +52,30 @@
             "path" : "pages/chat/chat",
             "style" : {}
         }
+        ,{
+            "path" : "pages/profile/myRelease",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/profile/myAcount",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/profile/myHistory",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/profile/myInfo",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/profile/myCollection",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/profile/offShelf",
+            "style" : {}
+        }
     ],
 	"scrollIndicator":"none",
 	"globalStyle": {

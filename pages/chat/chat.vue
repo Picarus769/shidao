@@ -7,7 +7,7 @@
 		</view>
 		<view class="input">
 			<image src="../../static/icon/语音.png" mode="" @click="bottomClick"></image>
-			<input placeholder="想对TA说点什么呢" type="text" value="" v-model="input"/>
+			<input placeholder="想对TA说点什么呢" type="text" value="" v-model="input" @confirm="inputConfirm"/>
 			<view class="right">
 				<image src="../../static/icon/表情.png" mode="" @click="bottomClick"></image>
 				<image src="../../static/icon/加号.png" mode="" @click="bottomClick"></image>
@@ -38,7 +38,13 @@
 					title: '功能暂未实现!',
 					icon: "none"
 				})
-				
+			},
+			async inputConfirm() {
+				const res = await this.$myRequest({
+					url: '/postMessage?',
+					method: 'POST',
+					
+				})
 			}
 		},
 		onLoad(options) {

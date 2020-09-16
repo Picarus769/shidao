@@ -8,7 +8,7 @@
 		<view class="record">
 			<view class="title">我的交易</view>
 			<view class="r">
-				<view v-for="item in record" class="record-item">
+				<view v-for="item in record" class="record-item" @click="bottomClick(item.path)">
 					<image :src="item.icon" mode=""></image>
 					<view>{{item.name}}</view>
 				</view>
@@ -17,7 +17,7 @@
 		<view class="account">
 			<view class="title">我的账户</view>
 			<view class="r">
-				<view v-for="item in account" class="record-item">
+				<view v-for="item in account" class="record-item" @click="bottomClick(item.path)">
 					<image :src="item.icon" mode=""></image>
 					<view>{{item.name}}</view>
 				</view>
@@ -41,28 +41,34 @@
 				record: [
 					{
 						name: '我发布的',
+						"path" : "/pages/profile/myRelease",
 						icon: '../../static/icon/发布.png'
 					},
 					{
 						name: '我看过的',
+						"path" : "/pages/profile/myHistory",
 						icon: '../../static/icon/历史.png'
 					},
 					{
 						name: '我下架的',
+						"path" : "/pages/profile/offShelf",
 						icon: '../../static/icon/下架.png'
 					},
 					{
 						name: '我收藏的',
+						"path" : "/pages/profile/myCollection",
 						icon: '../../static/icon/收藏.png'
 					},
 				],
 				account: [
 					{
 							name: '个人信息',
+							"path" : "/pages/profile/myInfo",
 							icon: '../../static/icon/资料.png'
 					},
 					{
 							name: '修改密码',
+							"path" : "/pages/profile/myAcount",
 							icon: '../../static/icon/安全.png'
 					}
 				]
@@ -72,7 +78,11 @@
 			...mapState(['userInformation', 'login'])  
 		},
 		methods: {
-			
+			bottomClick(url) {
+				uni.navigateTo({
+					url
+				})
+			}
 		},
 		onLoad() {
 			

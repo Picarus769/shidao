@@ -9,7 +9,7 @@
 			<uni-search-bar :radius="100" placeholder="请输入想要的商品" cancelButton="none" @confirm="confirm"></uni-search-bar>
 		</view>
 		<!-- 轮播图 -->
-		<swiper indicator-dots="true">
+		<swiper indicator-dots="true" autoplay="true">
 			<swiper-item v-for="item in swipers" :key="item.id">
 				<image :src="item.img"></image>
 			</swiper-item>
@@ -104,7 +104,7 @@
 			BackTop
 		},	
 		methods: {
-			//请求数据
+			//请求轮播图数据
 			async getSwipers() {
 				
 				const res = await this.$myRequest({
@@ -113,6 +113,7 @@
 				
 				this.swipers = res.data.messages
 			},
+			//请求推荐商品
 			async getRecommendGoods() {
 				const res = await this.$myRequest({
 					// url: '/emp/' + this.pageIndex
@@ -134,8 +135,7 @@
 						}
 					})
 					this.$store.commit('login', res.data.data)
-				} 
-				
+				}
 			},
 			//导航点击事件
 			navClick(url) {

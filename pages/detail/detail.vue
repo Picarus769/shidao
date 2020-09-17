@@ -69,7 +69,7 @@
 				<image src="../../static/icon/message.png" mode="" @click="leaveMessage"></image>
 				<view>留言</view>
 			</view>
-			<view class="bottom_item">
+			<view class="bottom_item" @click="contact">
 				<text>联系卖家</text>
 			</view>
 		</view>
@@ -141,6 +141,11 @@
  			commentClick() {
 				this.isTyping = !this.isTyping
 				console.log(this.isTyping)
+			},
+			async contact() {
+				uni.navigateTo({
+					url: '../chat/chat?goodId=' + this.id
+				})
 			}
  		},
 		onLoad(options) {

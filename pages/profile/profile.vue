@@ -3,7 +3,7 @@
 		<view class="header">
 			<image :src="avatarUrl || '../../static/icon/用户.png'" mode=""></image>
 			
-			<view class="login">{{this.user.userName || '点击登录'}}</view>
+			<view class="login" @click="loginClick">{{this.user.userName || '点击登录'}}</view>
 		</view>
 		<view class="record">
 			<view class="title">我的交易</view>
@@ -81,6 +81,11 @@
 			bottomClick(url) {
 				uni.navigateTo({
 					url
+				})
+			},
+			loginClick() {
+				uni.navigateTo({
+					url: '/pages/login/login'
 				})
 			}
 		},

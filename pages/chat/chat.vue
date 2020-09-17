@@ -17,6 +17,10 @@
 </template>
 
 <script>
+	 import {  
+	        mapState,  
+	        mapMutations  
+	    } from 'vuex';  
 	export default {
 		data() {
 			return {
@@ -25,6 +29,9 @@
 				chatList: [],
 				input: ''
 			}
+		},
+		computed: {
+			...mapState(['userInformation'])
 		},
 		filters: {
 			getTime(time) {
@@ -43,14 +50,19 @@
 				const res = await this.$myRequest({
 					url: '/postMessage?',
 					method: 'POST',
-					
 				})
-			}
+			},
+			
 		},
 		onLoad(options) {
 			this.id = options.index
-			this.chatList = this.$store.state.userInformation.cart[this.id]
-			this.portrait = this.$store.state.userInformation.portrait
+			// this.goodId = options.goodId
+			// if(this.id) {
+				this.chatList = this.$store.state.userInformation.cart[this.id]
+				this.portrait = this.$store.state.userInformation.portrait
+			// } else if (this.goodId) {
+				
+			// }
 		}
 	}
 </script>

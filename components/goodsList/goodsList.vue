@@ -2,7 +2,7 @@
 	<view>
 		<view class="goods">
 			<view v-for="item in goods" :key="item.id" class="goodsItem" @click="itemClick(item.id)">
-				<image :src="item.img" mode=""></image>
+				<image :src="item.images" mode=""></image>
 				<view class="message">{{item.message}}</view>
 				<view class="price">{{"￥" + item.price}}</view>
 				<view class="master">

@@ -97,6 +97,10 @@
 			//删除图片
 			deleteImage(index) {
 				this.images.splice(index, 1)
+			},
+			release() {
+				let time = new Date().getTime()
+				console.log(time)
 			}
 		}
 	}

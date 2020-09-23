@@ -11,7 +11,7 @@
 		<!-- 轮播图 -->
 		<swiper indicator-dots="true" autoplay="true">
 			<swiper-item v-for="item in swipers" :key="item.id">
-				<image :src="item.img"></image>
+				<image :src="item.image"></image>
 			</swiper-item>
 		</swiper>
 		<!-- 导航栏 -->
@@ -79,8 +79,16 @@
 		onLoad() {
 			this.getSwipers()
 			this.getRecommendGoods()
-			this.getUserInformation()
-			
+			// this.getUserInformation()
+			// const a = uni.request({
+			// 	url:'http://29k948265g.qicp.vip/good/selectLimitById',
+			// 	method: 'POST',
+			// 	data:{
+			// 		pages: 1,
+			// 		size: 1
+			// 	}
+			// })
+			// console.log(a)
 		},
 		onReachBottom() {
 			this.pageIndex++
@@ -108,19 +116,25 @@
 			async getSwipers() {
 				
 				const res = await this.$myRequest({
-					url: '/images/swiper'
+					url: '/image/selectAll'
 				})
-				
-				this.swipers = res.data.messages
+				console.log(res)
+				this.swipers = res.data.object
 			},
 			//请求推荐商品
 			async getRecommendGoods() {
 				const res = await this.$myRequest({
 					// url: '/emp/' + this.pageIndex
-					url: '/getList?pageindex=' + this.pageIndex
+					// url: '/getList?pageindex=' + this.pageIndex
+					url: '/good/selectLimitById',
+					method: 'POST',
+					data: {
+						pages: 1,
+						size: 1
+					}
 				})
-				
-				this.recommendGoods = [...this.recommendGoods, ...res.data.messages]
+				console.log(res)
+				this.recommendGoods = [...this.recommendGoods, ...res.data.object]
 				// console.log(this.recommendGoods)
 			},
 			//请求用户信息

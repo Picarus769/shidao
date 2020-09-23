@@ -4,7 +4,6 @@ import { myRequest } from './network/request.js'
 
 import store from './store'
 
-
 Vue.prototype.$myRequest = myRequest
 Vue.prototype.$store = store
 

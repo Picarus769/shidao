@@ -112,16 +112,27 @@
 			}
 		},
 		methods: {
+			//请求商品详细介绍
 			async getGoodDetail() {
 				const res = await this.$myRequest({
-					url: '/getGood?id=' + this.id
+					url: '/good/selectById',
+					method: "POST",
+					data: {
+						id: this.id
+					}
 				})
-				
-				this.goodDetail = res.data.messages
+				console.log(res)
+				this.goodDetail = res.data.object
 				console.log(this.goodDetail)
 				this.leaveTime = this.currentTime - this.goodDetail.lastTime
 				this.messageBoard = this.goodDetail.messageBoard
 				
+			},
+			//请求商品留言板
+			async getGoodMessageBoard() {
+				const res = await this.$myRequest({
+					url: 'getMessageBoard'
+				})
 			},
 			goodClick() {
 				

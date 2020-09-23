@@ -1,5 +1,5 @@
-// const BASE_URL = "http://29k948265g.qicp.vip/"
-const BASE_URL = "http://127.0.0.1:3000"
+const BASE_URL = "http://29k948265g.qicp.vip"
+// const BASE_URL = "http://127.0.0.1:3000"
 export const myRequest = (options) => {
 	return new Promise((resolve, reject) => {
 		uni.request({
@@ -7,6 +7,7 @@ export const myRequest = (options) => {
 			method: options.method || 'GET',
 			data: options.data,
 			success: (res) => {
+				
 				if(res.data.status !== 200) {
 					console.log(res)
 					return uni.showToast({

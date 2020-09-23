@@ -76,6 +76,10 @@
             "path" : "pages/profile/offShelf",
             "style" : {}
         }
+        ,{
+            "path" : "pages/profile/edit",
+            "style" : {}
+        }
     ],
 	"scrollIndicator":"none",
 	"globalStyle": {

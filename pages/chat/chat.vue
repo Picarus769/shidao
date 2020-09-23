@@ -47,22 +47,48 @@
 				})
 			},
 			async inputConfirm() {
-				const res = await this.$myRequest({
-					url: '/postMessage?',
-					method: 'POST',
-				})
+				// const res = await this.$myRequest({
+				// 	url: '/postMessage?',
+				// 	method: 'POST',
+				// })
+				this.websocketsend(JSON.stringify(this.input))
 			},
-			
+			initWebSocket(){ //初始化weosocket
+				const wsuri = "ws://127.0.0.1:8088";
+				this.websock = new WebSocket(wsuri);
+				this.websock.onmessage = this.websocketonmessage;
+				this.websock.onopen = this.websocketonopen;
+				this.websock.onerror = this.websocketonerror;
+				this.websock.onclose = this.websocketclose;
+			},
+			websocketonopen(){ //连接建立之后执行send方法发送数据
+				let actions = {"test":"12345"};
+				this.websocketsend(JSON.stringify(actions));
+			},
+			websocketonerror(){//连接建立失败重连
+				this.initWebSocket();
+			},
+			websocketonmessage(e){ //数据接收
+				const redata = JSON.parse(e.data);
+				console.log(redata)
+			},
+			websocketsend(Data){//数据发送
+				this.websock.send(Data);
+			},
+			websocketclose(e){  //关闭
+				console.log('断开连接',e);
+			},
 		},
 		onLoad(options) {
 			this.id = options.index
 			// this.goodId = options.goodId
 			// if(this.id) {
-				this.chatList = this.$store.state.userInformation.cart[this.id]
-				this.portrait = this.$store.state.userInformation.portrait
+				// this.chatList = this.$store.state.userInformation.cart[this.id]
+				// this.portrait = this.$store.state.userInformation.portrait
 			// } else if (this.goodId) {
 				
 			// }
+			this.initWebSocket();
 		}
 	}
 </script>
@@ -114,6 +140,7 @@
 			}
 			.right {
 				float: right;
+				height: 120rpx;
 			}
 		}
 		.me {
